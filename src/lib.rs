@@ -10,21 +10,23 @@ use diesel::mysql::MysqlConnection;
 use dotenv::dotenv;
 use std::env;
 
-use self::models::{Post, NewPost};
+use self::models::ErrorMatch;
+pub fn get_errors() -> Vec<ErrorMatch> {
+    use schema::errors::dsl::errors;
+    let connection = establish_connection();
+    let results = errors
+        .load::<ErrorMatch>(&connection)
+        .expect("Error loading matches");
+    results
+}
 
-pub fn create_post<'a>(conn: &MysqlConnection, title: &'a str, body: &'a str) {
-    use schema::posts;
-
-    let new_post = NewPost {
-        title: title,
-        body: body,
-    };
-
-    let x = diesel::insert_into(posts::table)
-        .values(&new_post)
+pub fn new_error(conn: &MysqlConnection, name: &str, identifier: &str) {
+    use schema::errtype;
+    let new_err = models::NewErrorType { name, identifier };
+    let x = diesel::insert_into(errtype::table)
+        .values(&new_err)
         .execute(conn);
-
-    println!("x: {:?}", x);
+    println!("New error result:::{:?}", x);
 }
 
 pub fn establish_connection() -> MysqlConnection {
