@@ -10,21 +10,39 @@ use diesel::mysql::MysqlConnection;
 use dotenv::dotenv;
 use std::env;
 
-use self::models::{Post, NewPost};
+use self::models::ErrorMatch;
 
-pub fn create_post<'a>(conn: &MysqlConnection, title: &'a str, body: &'a str) {
-    use schema::posts;
+use schema::{errors, whitelist};
 
-    let new_post = NewPost {
-        title: title,
-        body: body,
-    };
+pub enum MatchType {
+    TypeError,
+    TypeWhitelist,
+}
 
-    let x = diesel::insert_into(posts::table)
-        .values(&new_post)
+
+pub fn insert(conn: &MysqlConnection, matching_string: String, reference_url: String, reference_case: String) {
+    let new_err = models::NewErrorMatch { matching_string, reference_case, reference_url };
+    let x = diesel::insert_into(errors::table)
+        .values(&new_err)
         .execute(conn);
+    println!("New INSERTION result:::{:?}", x);
+}
 
-    println!("x: {:?}", x);
+pub fn insert_into_whitelist(conn: &MysqlConnection, matching_string: String, reference_url: String, reference_case: String) {
+    let new_err = models::NewWhitelistMatch { matching_string, reference_case, reference_url };
+    let x = diesel::insert_into(whitelist::table)
+        .values(&new_err)
+        .execute(conn);
+    println!("New INSERTION result:::{:?}", x);
+}
+
+pub fn get_errors() -> Vec<ErrorMatch> {
+    use schema::errors::dsl::errors;
+    let connection = establish_connection();
+    let results = errors
+        .load::<ErrorMatch>(&connection)
+        .expect("Error loading matches");
+    results
 }
 
 pub fn establish_connection() -> MysqlConnection {
