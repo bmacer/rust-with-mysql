@@ -11,6 +11,31 @@ use dotenv::dotenv;
 use std::env;
 
 use self::models::ErrorMatch;
+
+use schema::{errors, whitelist};
+
+pub enum MatchType {
+    TypeError,
+    TypeWhitelist,
+}
+
+
+pub fn insert(conn: &MysqlConnection, matching_string: String, reference_url: String, reference_case: String) {
+    let new_err = models::NewErrorMatch { matching_string, reference_case, reference_url };
+    let x = diesel::insert_into(errors::table)
+        .values(&new_err)
+        .execute(conn);
+    println!("New INSERTION result:::{:?}", x);
+}
+
+pub fn insert_into_whitelist(conn: &MysqlConnection, matching_string: String, reference_url: String, reference_case: String) {
+    let new_err = models::NewWhitelistMatch { matching_string, reference_case, reference_url };
+    let x = diesel::insert_into(whitelist::table)
+        .values(&new_err)
+        .execute(conn);
+    println!("New INSERTION result:::{:?}", x);
+}
+
 pub fn get_errors() -> Vec<ErrorMatch> {
     use schema::errors::dsl::errors;
     let connection = establish_connection();
@@ -18,15 +43,6 @@ pub fn get_errors() -> Vec<ErrorMatch> {
         .load::<ErrorMatch>(&connection)
         .expect("Error loading matches");
     results
-}
-
-pub fn new_error(conn: &MysqlConnection, name: &str, identifier: &str) {
-    use schema::errtype;
-    let new_err = models::NewErrorType { name, identifier };
-    let x = diesel::insert_into(errtype::table)
-        .values(&new_err)
-        .execute(conn);
-    println!("New error result:::{:?}", x);
 }
 
 pub fn establish_connection() -> MysqlConnection {
