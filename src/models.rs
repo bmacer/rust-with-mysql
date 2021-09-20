@@ -3,7 +3,7 @@
 use super::schema::errors;
 use super::schema::whitelist;
 
-#[derive(Queryable)]
+#[derive(Queryable, Clone, Debug)]
 pub struct ErrorMatch {
     pub id: i32,
     pub matching_string: String,

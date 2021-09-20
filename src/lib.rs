@@ -19,6 +19,19 @@ pub enum MatchType {
     TypeWhitelist,
 }
 
+pub fn get_error_by_id(conn: &MysqlConnection, error_id: i32) -> Option<ErrorMatch> {
+    let x = errors::table.find(error_id).load::<ErrorMatch>(conn);
+    match x {
+        Err(_) => return None,
+        Ok(v) => {
+            if v.len() == 0 {
+                return None
+            }
+            return Some(v[0].clone());
+        }
+    }
+}
+
 
 pub fn insert(conn: &MysqlConnection, matching_string: String, reference_url: String, reference_case: String) {
     let new_err = models::NewErrorMatch { matching_string, reference_case, reference_url };

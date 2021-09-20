@@ -20,14 +20,14 @@
 
 CREATE TABLE errors (
   id INTEGER PRIMARY KEY AUTO_INCREMENT,
-  matching_string VARCHAR(255) NOT NULL,
+  matching_string VARCHAR(255) NOT NULL UNIQUE,
   reference_url TEXT NOT NULL,
   reference_case TEXT NOT NULL
 );
 
 CREATE TABLE whitelist (
   id INTEGER PRIMARY KEY AUTO_INCREMENT,
-  matching_string VARCHAR(255) NOT NULL,
+  matching_string VARCHAR(255) NOT NULL UNIQUE,
   reference_url TEXT NOT NULL,
   reference_case TEXT NOT NULL
 )
