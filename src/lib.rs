@@ -108,13 +108,17 @@ pub fn get_error_by_id(conn: &MysqlConnection, error_id: i32) -> Option<ErrorMat
 }
 
 /// INSERT INTO errors
-pub fn insert(conn: &MysqlConnection, matching_string: String, reference_url: String, reference_case: String) {
-    let new_err = models::NewErrorMatch { matching_string, reference_case, reference_url };
-    let x = diesel::insert_into(errors::table)
-        .values(&new_err)
-        .execute(conn);
-    println!("New INSERTION result:::{:?}", x);
-}
+pub fn insert(
+    conn: &MysqlConnection, 
+    matching_string: String, 
+    reference_url: String, 
+    reference_case: String) {
+        let new_err = models::NewErrorMatch { matching_string, reference_case, reference_url };
+        let x = diesel::insert_into(errors::table)
+            .values(&new_err)
+            .execute(conn);
+        println!("New INSERTION result:::{:?}", x);
+    }
 
 /// INSERT INTO whitelist
 pub fn insert_into_whitelist(conn: &MysqlConnection, matching_string: String, reference_url: String, reference_case: String) {

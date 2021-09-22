@@ -1,24 +1,86 @@
+refurl
+refcase
+exceeded max filesize, aborting...
+ERROR: APDEWrapper::GetSignatureSetInfo: empty sig path was passed, aborting
+ERROR: APDEUpdateThreadMain: shutting down.
+ERROR: RegistryOperator::DeleteRegValue: value does not exist, nothing to delete
+ERROR: History::FreeExpiredRowIdList : param: *detail is null
+ERROR: TetraUpdaterInit unable to read proxy settings. download may not be successful
+ERROR:  unable to open handle using filename
+ERROR: QueryMultiGet: Query UnSuccessful
+ERROR: QueryAsyncCb: Cloud query failed
+ERROR: Event::HandleExecution unable to open process handle
+ERROR: SaveInstallToken: Failed to retrieve install token from policy.xml
+ERROR: Event::ProcessorSB Queue underflow
+ERROR: APDEWrapper::GetEngineStatsJson: No expressions loaded
+ERROR: AgentMetricsPublisher::BuildAPDEJson: Could not parse json: ``
+ERROR: Query::MultiLookupFile : LookupExecute failed
+ERROR: AmsiProcessInfoProvider::GetProcessInfo: Could not find pid in ProcessList
+ERROR: MsiWrapper::GetPackageCodeForInstalledProduct could not enumerate products
+ERROR: Update::GetSeed: no Server or URL passed in
+Event::HandleExecution: unable to query hash
+ERROR: ProcessEnumerateProcs: OpenProcess failed for PID
+ERROR: CDBBase::Execute NFMUrlFileMapDB: table nfm_url_file_map already exists
+ERROR: CDBBase::Prepare NFMUrlFileMapDB: failure preparing: CREATE TABLE nfm_url_file_map
+ERROR: imn::CThreadEventPublisher::ThreadMain
+ERROR: AmpkitConfigReader::PopulateAgentIdentity: Failed to read actcode from policy
+ERROR: HistoryEx::ConvertDBPathToFullPath partial
+ERROR: AmpkitHttp::MakeRequest: Request Failed for 
+ERROR: AmpkitConfigReader::PopulateAgentIdentity: Failed to read actcode from policy
+ERROR: SetAgentSystemLogLevel: Failed to connect to CSCMS
+ERROR: PersistentConfig::Set no xtag/registry value supplied, exitting...
+ERROR: AmpkitHttp::GenerateSections: No Sections
+ERROR: HistoryEx::Prepare (table component already exists)
+Failed to load Morphisec Driver
+ERROR: ExPrevStateController::HandleExPrevConfiguration: calling HandleExPrevEnabled failed
+ERROR: OrbitalMsiHelper::GetProductKey: Orbital is not installed
+Failed to initialize Morphisec instance.
+ERROR: ExPrevStateController::InitializeExPrevState: Failed to initialize exPrev instance, error code 6
+ERROR: ExPrevStateController::HandleExPrevEnabled: Unable to initialize exPrev
+ERROR: ExPrevStateController::HandleExPrevConfiguration: calling HandleExPrevEnabled failed
+ERROR: SetExPrevDebugLevel: HandleExPrevConfiguration call failed with status 6
+ParseHTTPSingleLine error: ACCEPT-RANGES: bytes
+ParseHTTPSingleLine error: HEAD
+ParseHTTPSingleLine error: HTTP/1.1 200 OK
+ERROR: ETWEnableConfiguration::IsETWEnabled: ETW not initialized due to incompatibile OS
+NFMMemCache::InitFromDB error. not adding row
+ERROR: Util::VerifyAll: signer verification failed
+ERROR: ProcessFileChecksum pStr: (null)
+ParseHTTPSingleLine error: HTTP/1.1 304 Not Modified
+ParseHTTPSingleLine error: HTTP/1.1 407 Proxy Authentication Required
+ParseHTTPSingleLine error: HTTP/1.0 200 Connection established
+ERROR: PipeServer::PipeThread: AuthenticateClient failed
+DeleteTmpFiles: FindFirstFile
+NFM::WriteThread error: unable to send message
 ERROR: Event::HandleIncomingConnection : unable to perform network cloud lookup for hash
-url
-sr
 AdapterQueryParamToLookupParam error: IPv6 not yet supported
-url
-sr
 FileTypeDetector::DetectFileType: Failed to find file type via extension, using clam file typing
-url
-sr
 ParseHTTPSingleLine error: M-SEARCH
-url
-sr
 ParseHTTPSingleLine error: HTTP/1.1 200 Connection established
-url
-sr
 ERROR: GetEnvironment: iocUtils::peb::GetEnvironment() returned 1
-url
-sr
 ERROR: HandlePipeIO: GetOverlappedResult failed
-url
-sr
 ERROR: ProcessList::Add: WARNING: Terminating an existing process cachent that was not expected
-url
-sr
+ERROR: FileTypeExtension::IsParentProcessValid: parentProcess is null
+ERROR: JobEngine::ReadJobFromDb: Failed to read job
+ERROR: CloudHandle::CloudHandle: client connector not available
+ERROR: ConvertProtcolStringToEnum: Conversion to proxy proto enum failed
+ERROR: FileTypeExtension::IsParentProcessValid: parentProcess is null
+ERROR: Util::VerifyAll: signature verification failed
+ERROR: [AMPKIT-WIN][certificate_acquisition.c@432]: Missing actcode, not able to register with CADSV2
+ERROR: NodeIsolationApiWrapper::DeInitializeNodeIsolation: Failed to deinitialize node isolation engine
+ERROR: read_fltcksum done : 1008
+AmpkitCloudConnectionMgr::ReportCloudConnectionFailure
+ERROR: Query::LookupExecute: query dispatch failed, error -1
+ERROR: URLScannerPolicyUpdater::~URLScannerPolicyUpdater: Destructor called
+ERROR: OrbitalThreadMain: shutting down.
+Pipe::PipeReceiveThread: GetOverlappedResult: ERROR_BROKEN_PIPE
+ERROR: Policy::ProcessExploitPrevention: HandleExPrevConfiguration call failed with status 6
+ERROR: ClamDefsEnabled: Could not get Clam Engine instance.
+ERROR: PipeClient::OpenFailed to connect to named pipe (\\.\PIPE\IMMUNET_CSCM)
+ERROR: [AMPKIT-WIN][register.c@426]: failed to insert key value pair 13
+ERROR: [AMPKIT-WIN][register.c@562]: Registration failed (HTTP code: 502)
+ERROR: [AMPKIT-WIN][janus_registration.c@149]: janus registration failed, status 8
+ERROR: Event::HandleMove: unable to query hash
+failed in 0 mode
+NFMCache::GetRowIds error: fail 101 to get row ids
+most recent cacheent was already terminated
