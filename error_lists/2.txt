@@ -1,0 +1,7 @@
+ampsupport_756fa076_20210913_165219.7z
+692107407
+CDBBase::Get NFMUrlFileMapDB error: fail 101
+ParseHTTPSingleLine error: HTTP/1.0 407 Proxy Authentication Required
+ParseHTTPSingleLine error: HTTP/1.1 204 No Content
+CDBBase::Get JobsDB error: fail 101
+ParseHTTPSingleLine error: HTTP/1.1 302 Found

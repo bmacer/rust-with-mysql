@@ -37,10 +37,10 @@ fn main() {
 
         written_count += 1;
         if target == "error" {
-            insert(&connection, matching_string, refurl, refcase);
+            error_matches::insert_into_errors(&connection, matching_string, refurl, refcase);
             println!("inserting into error");
         } else if target == "whitelist" {
-            insert_into_whitelist(&connection, matching_string, refurl, refcase);
+            error_matches::insert_into_whitelist(&connection, matching_string, refurl, refcase);
             println!("inserting into whitelist");
         } else {
             panic!("this shouldn't be able to happen, i checked for this already");
