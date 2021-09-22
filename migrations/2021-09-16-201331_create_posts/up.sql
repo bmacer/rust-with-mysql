@@ -1,34 +1,24 @@
--- CREATE TABLE poststhree (
---   id INTEGER AUTO_INCREMENT PRIMARY KEY,
---   title VARCHAR(255) NOT NULL,
---   body TEXT NOT NULL,
---   published BOOLEAN NOT NULL DEFAULT FALSE
--- );
-
--- CREATE TABLE posts (
---   id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
---   title VARCHAR(255) NOT NULL,
---   body TEXT NOT NULL,
---   published BOOLEAN NOT NULL DEFAULT 0
--- );
-
--- CREATE TABLE errtype (
---   id INTEGER PRIMARY KEY AUTO_INCREMENT,
---   name VARCHAR(255) NOT NULL,
---   identifier TEXT NOT NULL
--- );
-
 CREATE TABLE errors (
   id INTEGER PRIMARY KEY AUTO_INCREMENT,
   matching_string VARCHAR(255) NOT NULL UNIQUE,
   reference_url TEXT NOT NULL,
   reference_case TEXT NOT NULL
 );
-
 CREATE TABLE whitelist (
   id INTEGER PRIMARY KEY AUTO_INCREMENT,
   matching_string VARCHAR(255) NOT NULL UNIQUE,
   reference_url TEXT NOT NULL,
   reference_case TEXT NOT NULL
-)
-
+);
+CREATE TABLE diagnostic_files (
+  id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  diag_url VARCHAR(255) NOT NULL UNIQUE,
+  sr VARCHAR(255)
+);
+CREATE TABLE error_results (
+  id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  matching_string_id INTEGER NOT NULL,
+  diagnostic_file_id INTEGER NOT NULL,
+  count INTEGER NOT NULL,
+  CONSTRAINT diag_match UNIQUE (matching_string_id,diagnostic_file_id)
+);
